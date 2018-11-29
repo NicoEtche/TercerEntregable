@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/artback"
+    tools:context=".view.FragmentRegistrarse">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/linear_reg"
+        android:layout_marginBottom="60dp"
+        android:text="Crea tu cuenta:"
+        android:textColor="#000"
+        android:textSize="24dp" />
+
+    <LinearLayout
+        android:id="@+id/linear_reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_text_usuario_reg"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp"
+            android:background="@drawable/shape_text_input_login"
+            android:maxLength="35"
+            android:padding="10dp"
+            android:text="usuario"
+            android:textColor="#000"
+            android:textSize="18dp" />
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/edit_text_contraseña_reg"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edit_text_usuario"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape_text_input_login"
+            android:maxLength="35"
+            android:padding="10dp"
+            android:text="contraseña"
+            android:textColor="#000"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/button_aceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_text_input_login"
+            android:text="Aceptar" />
+
+
+
+    </LinearLayout>
+</RelativeLayout>

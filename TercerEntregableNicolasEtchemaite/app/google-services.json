@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "581473608324",
+    "firebase_url": "https://tercerentregablenicolasetchema.firebaseio.com",
+    "project_id": "tercerentregablenicolasetchema",
+    "storage_bucket": "tercerentregablenicolasetchema.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:581473608324:android:36df168ea61549ef",
+        "android_client_info": {
+          "package_name": "com.digitahouse.tercerentregablenicolasetchemaite"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "581473608324-s999ns1qlhspd5crrlk3pk9tgucut38t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.digitahouse.tercerentregablenicolasetchemaite",
+            "certificate_hash": "4510190e9a5f45c199d5324b9f1755f4cd11a23d"
+          }
+        },
+        {
+          "client_id": "581473608324-8a9m3pumdgu86uutdldpat421qa8c1cn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzUKZj03VT0T3pLHVEMfFeInj2EFO9jtc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "581473608324-8a9m3pumdgu86uutdldpat421qa8c1cn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

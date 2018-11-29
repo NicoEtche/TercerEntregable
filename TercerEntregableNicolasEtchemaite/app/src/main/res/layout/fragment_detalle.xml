@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.FragmentDetalle">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginBottom="37dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="37dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/image_view_obra_detalle"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text= "nombre de la obra"
+        android:gravity="center"
+        android:id="@+id/text_view_nombre_de_la_obra"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/image_view_obra_detalle"
+        android:textSize="30dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "Pais de Origen: "
+        android:layout_margin="10dp"
+        android:layout_below="@id/text_view_nombre_de_la_obra"
+        android:textSize="20dp"
+        android:id="@+id/text_view_pais_de_origen"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text= "Artista: "
+        android:id="@+id/text_view_artista"
+        android:layout_marginHorizontal="10dp"
+        android:layout_below="@id/text_view_pais_de_origen"
+        android:textSize="20dp" />
+</RelativeLayout>
