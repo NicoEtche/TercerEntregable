@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class DAOArtistas {
+public class DAOArtistas  {
 
     private FirebaseDatabase database;
 

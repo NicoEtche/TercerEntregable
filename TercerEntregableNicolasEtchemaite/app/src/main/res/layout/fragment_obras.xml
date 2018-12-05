@@ -4,11 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.FragmentObras">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recycler_view_fragment_obras">
 
     </android.support.v7.widget.RecyclerView>
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/floating_button_camera"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="15dp"
+            android:src="@drawable/ic_photo_camera_white_24dp"/>
+    </RelativeLayout>
 
 </FrameLayout>

@@ -1,20 +1,28 @@
 package com.digitahouse.tercerentregablenicolasetchemaite.model.POJO;
 
-import java.io.Serializable;
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+import android.support.annotation.NonNull;
 
+import java.io.Serializable;
+@Entity(tableName = "artistas")
 public class Artist implements Serializable {
 
-    private String Influenced_by;
+
+
+    @NonNull
+    @PrimaryKey
     private String artistId;
+
+    @ColumnInfo(name = "nombre")
     private String name;
+    @ColumnInfo(name = "pais")
     private String nationality;
 
     public Artist() {
     }
 
-    public String getInfluenced_by() {
-        return Influenced_by;
-    }
 
     public String getArtistId() {
         return artistId;
@@ -26,5 +34,19 @@ public class Artist implements Serializable {
 
     public String getNationality() {
         return nationality;
+    }
+
+
+
+    public void setArtistId(String artistId) {
+        this.artistId = artistId;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNationality(String nationality) {
+        this.nationality = nationality;
     }
 }

@@ -94,8 +94,10 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 usuario = findViewById(R.id.edit_text_usuario);
+                usuario.setText("");
                 contraseña = findViewById(R.id.edit_text_contraseña);
-                if (!usuario.equals(null) && !contraseña.equals(null)) {
+                contraseña.setText("");
+                if (!usuario.getText().toString().equals("") || !contraseña.getText().toString().equals("")) {
                     mAuth.signInWithEmailAndPassword(usuario.getText().toString(), contraseña.getText().toString())
                             .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
 
@@ -118,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                                 }
                             });
                 } else {
-                    Toast.makeText(LoginActivity.this, "Ingrese sus datos", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Ingrese sus datos correctamente", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -212,7 +214,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void startActivityAMainSinBackStab() {
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
-        i.setFlags(i.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(i);
         finish();
     }

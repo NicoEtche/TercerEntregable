@@ -1,10 +1,17 @@
 package com.digitahouse.tercerentregablenicolasetchemaite.view;
 
+import android.arch.persistence.room.Room;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,22 +24,39 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.digitahouse.tercerentregablenicolasetchemaite.R;
 import com.digitahouse.tercerentregablenicolasetchemaite.controller.ControllerObras;
+import com.digitahouse.tercerentregablenicolasetchemaite.controller.ControllerRoom;
+import com.digitahouse.tercerentregablenicolasetchemaite.model.DAO.AppDataBase;
+import com.digitahouse.tercerentregablenicolasetchemaite.model.DAO.DAODatabaseAcces;
 import com.digitahouse.tercerentregablenicolasetchemaite.model.POJO.Obra;
+import com.digitahouse.tercerentregablenicolasetchemaite.model.POJO.ObraContainer;
 import com.digitahouse.tercerentregablenicolasetchemaite.util.ResultListener;
 
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterRecyclerViewObras extends RecyclerView.Adapter<AdapterRecyclerViewObras.ObrasViewHolder> {
 
     private List<Obra> paints;
+    private Context context;
 
-    public AdapterRecyclerViewObras() {
+
+
+
+
+    public AdapterRecyclerViewObras(Context context) {
+        this.context = context;
         this.paints = new ArrayList<>();
     }
 
     public void addListObras(List<Obra> listaObras) {
-        paints = listaObras;
+        paints.addAll(listaObras);
+        notifyDataSetChanged();
+    }
+    public void addObraToList(Obra obra){
+        paints.add(obra);
         notifyDataSetChanged();
     }
 
@@ -47,8 +71,10 @@ public class AdapterRecyclerViewObras extends RecyclerView.Adapter<AdapterRecycl
 
     @Override
     public void onBindViewHolder(@NonNull ObrasViewHolder holder, int position) {
+
         Obra obra = paints.get(position);
-        holder.bindObra(obra);
+        holder.bindObra(obra, context);
+
     }
 
     @Override
@@ -57,9 +83,8 @@ public class AdapterRecyclerViewObras extends RecyclerView.Adapter<AdapterRecycl
     }
 
     public class ObrasViewHolder extends RecyclerView.ViewHolder {
-        private ControllerObras controllerObras = new ControllerObras();
-        private ImageView imagenObra;
         private TextView titulo;
+        private ImageView imagenObra;
         private LinearLayout celda;
 
         public ObrasViewHolder(final View itemView) {
@@ -78,11 +103,17 @@ public class AdapterRecyclerViewObras extends RecyclerView.Adapter<AdapterRecycl
             });
         }
 
-        public void bindObra(Obra obra) {
 
-            String realPath = obra.getImage().substring(13,obra.getImage().length());
+        public void bindObra(Obra obra, Context context) {
+
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions.placeholder(R.drawable.placeholder).fitCenter();
+            requestOptions.error(R.drawable.placeholder);
+            requestOptions.fallback(R.drawable.placeholder);
+
             titulo.setText(obra.getName());
-            getImageFromStorage(realPath, imagenObra, itemView.getContext());
+            Glide.with(context).applyDefaultRequestOptions(requestOptions).load(obra.getFullLink())
+                    .transition(DrawableTransitionOptions.withCrossFade()).into(imagenObra);
 
         }
 
@@ -92,36 +123,53 @@ public class AdapterRecyclerViewObras extends RecyclerView.Adapter<AdapterRecycl
         void openObraData(Obra obra);
     }
 
-    public void getImageFromStorage(String string, final ImageView imageView, final Context context) {
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+    /* *//* public void getImageFromStorage(String string, final ImageView imageView, final Context context) {
+
+
         ControllerObras controllerObras = new ControllerObras();
         controllerObras.getImageFromStorage(string, new ResultListener<Uri>() {
             @Override
             public void finish(Uri result) {
-                RequestOptions requestOptions = new RequestOptions();
+               *//**//* RequestOptions requestOptions = new RequestOptions();
                 requestOptions.placeholder(R.drawable.placeholder).fitCenter();
                 requestOptions.error(R.drawable.placeholder);
                 requestOptions.fallback(R.drawable.placeholder);
 
-                Glide.with(context).applyDefaultRequestOptions(requestOptions).load(result)
-                        .transition(DrawableTransitionOptions.withCrossFade()).into(imageView);
+               Glide.with(context).applyDefaultRequestOptions(requestOptions).load(result)
+                        .transition(DrawableTransitionOptions.withCrossFade()).into(imageView);*//*
+
+
+
+
+
+
 
             }
         });
 
-    }
-
-  /*  public Integer countChars(String string){
-
-        int counter = 0;
-        for( int i=0; i<string.length(); i++ ) {
-            if( s.charAt(i) == '$' ) {
-                counter++;
-            }
-        }
 
     }*/
 
-    }
+
+
+
 
 
 

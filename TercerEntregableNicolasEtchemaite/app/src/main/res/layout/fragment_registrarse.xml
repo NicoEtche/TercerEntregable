@@ -33,7 +33,7 @@
             android:background="@drawable/shape_text_input_login"
             android:maxLength="35"
             android:padding="10dp"
-            android:text="usuario"
+            android:hint="email"
             android:textColor="#000"
             android:textSize="18dp" />
 
@@ -48,7 +48,7 @@
             android:background="@drawable/shape_text_input_login"
             android:maxLength="35"
             android:padding="10dp"
-            android:text="contraseña"
+            android:hint="contraseña"
             android:textColor="#000"
             android:textSize="18dp" />
 
